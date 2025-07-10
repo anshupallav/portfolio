@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+<link  rel="stylesheet"  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<!-- Leaflet JS -->
+<script  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 </head>
 
 <script>
@@ -36,7 +41,26 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+  const map = L.map('hero-map', {
+    zoomControl: false,
+    attributionControl: false,
+    dragging: false,
+    scrollWheelZoom: false,
+    doubleClickZoom: false,
+    boxZoom: false,
+    keyboard: false,
+    tap: false,
+    touchZoom: false,
+  }).setView([29.7604, -95.3698], 11); // Example: Houston
 
+  L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+    {
+      maxZoom: 16,
+    }
+  ).addTo(map);
+</script>
 
 
 <body>
@@ -62,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         </div>
     </nav>
-
+    <div id="hero-map"></div>
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
