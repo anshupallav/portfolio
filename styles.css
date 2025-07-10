@@ -987,64 +987,68 @@ body {
     line-height: 1.8;
     color: #444;
 }
-
-/* === Dark‑theme overrides (appended) === */
+/* === Dark‑theme overrides appended === */
 :root{
   --background-color:#121212;
   --bg-light:#1e1e1e;
   --bg-white:#1a1a1a;
+  --card-bg:#1a1a1a;
   --text-white:#ffffff;
   --text-light:#d0d0d0;
+  --text-muted:#9a9a9a;
   --border-color:#333;
 }
 
-/* Navbar always dark with white links */
+/* Navbar always dark */
 .navbar,
 .navbar.scrolled,
-.nav-menu{
-  background:#000!important;
-  box-shadow:none;
-  backdrop-filter:none;
-}
+.nav-menu{background:#000!important;backdrop-filter:none;box-shadow:0 1px 4px rgba(0,0,0,.8)}
 .nav-link{color:var(--text-white)!important;font-weight:500}
 .nav-link:hover{color:var(--primary-color)!important}
+.nav-link::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--primary-color);transition:width .3s}
+.nav-link:hover::after{width:100%}
+.hamburger span{background:var(--text-white)!important}
 
 /* Dark section backgrounds */
-.about,.skills,.projects,.education,.certifications,.contact,.experience,.industry{
-  background:var(--bg-light)!important;
-  color:var(--text-light);
-}
+.about,.skills,.projects,.education,.certifications,.contact,.experience,.industry{background:var(--bg-light)!important;color:var(--text-light)}
 .section-title{color:var(--text-white)}
 
-/* Cards / panels */
-.stat,.skill-category,.project-card,.timeline-content,
-.education-card,.certifications,.contact-form,.industry-card{
+/* Cards & panels */
+.stat,.skill-category,.project-card,.timeline-content,.education-card,.certifications,.contact-form,.industry-card{
   background:var(--bg-white);
   border:1px solid var(--border-color);
   color:var(--text-light);
 }
-
-/* Headings */
-.stat h3,.skill-category h3,.project-header h3,
-.timeline-content h3,.education-header h3,
-.certifications h3,.contact-info h3{
+.stat h3,.skill-category h3,.project-header h3,.timeline-content h3,.education-header h3,.certifications h3,.contact-info h3,.industry-card h2{
   color:var(--text-white);
 }
 
-/* Links default white */
-a{color:var(--text-white)}
-a:hover{color:var(--primary-color)}
+/* Industry body text */
+.industry-card p,
+.industry-card li{color:var(--text-white)}
 
-/* Skill tags, buttons */
+/* Skill‑tag pills */
 .skill-tag{
-  background:#fff;
-  color:var(--primary-color);
+  background:var(--primary-color);
+  color:var(--text-white)!important;
   border:1px solid var(--primary-color);
 }
 .skill-tag:hover{
+  background:var(--secondary-color);
+  color:var(--text-white)!important;
+  transform:scale(1.05);
+}
+
+/* Certifications list – keep text white */
+.cert-item{color:var(--text-white)}
+.cert-item a{color:var(--text-white)}
+.cert-item:hover{
   background:var(--primary-color);
   color:var(--text-white);
 }
+.cert-item:hover a{color:var(--text-white)}
+.cert-item i{color:var(--primary-color)}
+.cert-item:hover i{color:var(--text-white)}
 
 /* Buttons */
 .btn-primary{
@@ -1060,7 +1064,7 @@ a:hover{color:var(--primary-color)}
 /* Form fields */
 .form-group input,
 .form-group textarea{
-  background:var(--bg-white);
+  background:var(--card-bg);
   color:var(--text-white);
   border:2px solid var(--border-color);
 }
