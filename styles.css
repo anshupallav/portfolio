@@ -41,7 +41,13 @@ body {
     padding: 0 20px;
 }
 
-.navbar {
+.navbar,
+.navbar.scrolled {
+    background-color: #000000 !important;
+    color: white !important;
+    backdrop-filter: none !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+}
     position: fixed;
     top: 0;
     width: 100%;
@@ -433,14 +439,22 @@ body {
 }
 
 .tech-tag {
-    background: var(--bg-light);
-    color: var(--text-dark);
+    background: transparent;
+    color: var(--text-white);
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
     font-weight: 500;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--text-white);
+    transition: all 0.3s ease;
 }
+
+    .tech-tag:hover {
+        background: var(--primary-color);
+        color: var(--text-white);
+        transform: scale(1.05);
+    }
+
 
 .experience {
     padding: 80px 0;
@@ -1069,3 +1083,38 @@ body {
   border:2px solid var(--border-color);
 }
 input::placeholder,textarea::placeholder{color:var(--text-light)}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    color: #1e88e5;
+}
+
+.industry-card p,
+.industry-card li {
+    color: white !important;
+}
+
+.cert-item:hover {
+    background: #1e88e5;
+    color: white;
+}
+.cert-item:hover i {
+    color: white;
+}
+.cert-item a,
+.cert-item:hover a {
+    color: white;
+}
+
+.skill-tag {
+    background: #1e88e5 !important;
+    color: white !important;
+    border: 1px solid #1e88e5;
+}
+.skill-tag:hover {
+    background: #1e40af !important;
+    color: white !important;
+}
