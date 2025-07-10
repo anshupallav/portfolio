@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anshu Pallav - Enterprie GIS Solutions Architect</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<!-- ✅ JavaScript right before </body> -->
+<script>
+    const form = document.getElementById('contactForm');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            form.reset();
+            thankYouMessage.style.display = 'block';
+        } else {
+            alert('Oops! There was a problem submitting your form.');
+        }
+    });
+</script>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Anshu Pallav</h2>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#industry" class="nav-link">Industry Expertise</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Hi, I'm <span class="highlight">Anshu Pallav</span></h1>
+                <h2>Enterprise GIS Solutions Architect</h2>
+                <p>I am a Senior Enterprise GIS Architect at LOGIC Solutions Group in Houston, TX, leveraging over a decade of experience in geospatial information management, project leadership, and enterprise GIS solutions. Throughout my career, I have collaborated with leading organizations such as Esri, Avineon, and Cybertech, focusing on the design, development, and deployment of scalable GIS infrastructures.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#projects" class="btn btn-secondary">View My Work</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-circle">
+                    <img src="anshu.jpg" alt="ANshu Pallav Profile" class="profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I’m Anshu Pallav, an Enterprise GIS Solutions Architect with over a decade of experience designing, deploying, and optimizing geospatial systems for complex business environments. I specialize in building scalable GIS infrastructures that integrate cloud technologies, automated data workflows, and cutting-edge visualization tools to support critical operations in energy, utilities, and government sectors.</p>
+                    <p>Currently, I lead enterprise GIS initiatives at Harvest Midstream through LOGIC Solutions Group, where I architect high-availability systems, automate data pipelines, and deliver actionable insights through platforms like ArcGIS Pro, Survey123, Power BI, and Microsoft Azure. My work bridges strategic IT planning and real-world field operations—whether it's modernizing infrastructure with DevOps, integrating drone and mobile data collection for field workflows, or developing executive dashboards that drive data-informed decisions.</p>
+                    <p>My core expertise lies in the Esri ArcGIS suite, where I have orchestrated end-to-end implementations—from geospatial data management and GIS architecture to custom application development. I am also well-versed in integrating AWS cloud technologies to enhance performance, scalability, and cost-efficiency for enterprise-level GIS deployments.</p>
+                    <p>With past roles at Esri and Avineon, I’ve delivered enterprise-grade GIS solutions across the U.S. and internationally, backed by a strong foundation in software development, data modeling, and spatial analytics. I'm a certified GISP, AWS Cloud Practitioner, and hold multiple advanced Esri certifications. My passion lies in creating intelligent geospatial ecosystems that are robust, user-centric, and future-ready.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>10+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat">
+                            <h3>MS</h3>
+                            <p>Geographic Information System</p>
+                        </div>
+                        <div class="stat">
+                            <h3>20+</h3>
+                            <p>Technologies Mastered</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="industry" class="section industry">
+        <div class="industry-content">
+            <div class="industry-card">
+                <h2>Industry Expertise</h2>
+                <p>I have delivered GIS and geospatial solutions across a diverse set of industries, applying spatial intelligence to solve complex infrastructure, planning, and data integration challenges. My domain experience spans:</p>
+                <ul class="industry-list">
+                    <li><strong>Oil & Gas:</strong> Midstream Pipeline</li>
+                    <li><strong>Utilities:</strong> Water & Electric (Private and Public)</li>
+                    <li><strong>Transportation:</strong> Roads and Highways</li>
+                    <li><strong>Regional Planning:</strong> Southern California and India</li>
+                    <li><strong>Emergency Services:</strong> Hospitals, Sanitation, Disaster Response</li>
+                    <li><strong>Cities & Counties:</strong> Across multiple States in USA</li>
+                    <li><strong>Education (Universities):</strong> CSU Long Beach, UNC Chapel Hill, University of Michigan</li>
+                    <li><strong>Organizations:</strong> McDonald’s, Esri, SFPUC</li>
+                    <li><strong>Drones:</strong> EDR Summit, Drone Enthusiast</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Development</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Java/JavaScript</span>
+                        <span class="skill-tag">VB.Net</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Database Systems</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">SQL Server</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>GIS Platforms and Tools</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">ArcGIS Pro</span>
+                        <span class="skill-tag">ArcGIS Enterprise</span>
+                        <span class="skill-tag">Portal for ArcGIS</span>
+                        <span class="skill-tag">ArcGIS Server</span>
+                        <span class="skill-tag">ArcGIS Geoevent Server</span>
+                        <span class="skill-tag">ArcGIS Notebook Server</span>
+                        <span class="skill-tag">ArcGIS Indoors</span>
+                        <span class="skill-tag">Roads and Highways</span>
+                        <span class="skill-tag">ArcGIS Insights</span>
+                        <span class="skill-tag">QGIS</span>
+                        <span class="skill-tag">GeoServer</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>WebGIS APIs</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">ArcGIS API for JavaScript</span>
+                        <span class="skill-tag">ArcGIS API for Python</span>
+                        <span class="skill-tag">Leaflet</span>
+                        <span class="skill-tag">MapBox</span>
+                        <span class="skill-tag">OpenLayers</span>
+                        <span class="skill-tag">PyQGIS</span>
+                        <span class="skill-tag">Node.js</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Analysis & Visualization</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">RStudio</span>
+                        <span class="skill-tag">Data Mining</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Predictive Modeling</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Modelling</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">AutoCAD</span>
+                        <span class="skill-tag">ArcGIS City Engine</span>
+                        <span class="skill-tag">SketchUp</span>
+                        <span class="skill-tag">GeoDa</span>
+                        <span class="skill-tag">FME</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Machine Learning</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Regression</span>
+                        <span class="skill-tag">Time Series Forecasting</span>
+                        <span class="skill-tag">Classification</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Engineering</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Apache Spark</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS (EC2, S3, AI/ML)</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">OpenShift</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud, DevOps & Automations</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Microsoft Azure</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">PowerShell</span>
+                        <span class="skill-tag">Chef Scripts</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Git Desktop</span>
+                        <span class="skill-tag">Bit Bucker</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">JIRA</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Esri-Microsoft Integrators</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag">ArcGIS Maps for SharePoint</span>
+                        <span class="skill-tag">ArcGIS Maps for Office</span>
+                        <span class="skill-tag">ArcGIS Maps for Teams</span>
+                        <span class="skill-tag">ArcGIS Maps for PowerBI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Sustainable Tourism Web Map for the City of Long Beach using bikes: LB Green Travel</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/anspal/lbgreentravel" class="project-link" target="_blank" title="View Source on GitHub"><i class="fab fa-github"></i></a>
+                          
+                        </div>
+                    </div>
+                    <p>Developed an AWS-based interactive sustainable travel website using an open-source full-stack GIS enterprise architecture using free student subscription. </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">GeoServer</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">MapBox APIs</span>
+                        <a href="https://cla.csulb.edu/departments/geography/beachgis/wp-content/uploads/2019/04/cohort4_Pallav.pdf" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Project Poster</a>
+                        <a href="https://www.cpace.csulb.edu/news/article/msgisci-grad-is-designing-solutions-for-climate-change" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Blog Post</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>3D GIS College Campus Models</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/anspal/CSULB_PyQGIS_App" class="project-link" target="_blank" title="View Source on GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <p>Built interactive campus application using Python with PyQGIS and Qt APIs, and created 3D campus models using ArcGIS Online, 3D Scene Viewer, ArcGIS Pro, CityEngine, and QGIS..</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PyQGIS</span>
+                        <span class="tech-tag">3D GIS Visualization</span>
+                        <span class="tech-tag">ArcGIS Online</span>
+                        <span class="tech-tag">ArcGIS Pro</span>
+                        <span class="tech-tag">ArcGIS City Engine</span>
+                        <span class="tech-tag">QGIS</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Parallel Computing for Remote Sensing Data Processing</h3>
+                    </div>
+                    <p>Designed a parallel computing workflow for remote sensing data processing using GDAL, OpenMPI on the PARAM Yuva II Supercomputer.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Parallel Computing</span>
+                        <span class="tech-tag">GDAL</span>
+                        <span class="tech-tag">OpenMPI</span>
+                        <span class="tech-tag">PARAM Yuva II Supercomputer</span>
+                        <a href="https://ijcatr.com/archives/volume2/issue4/ijcatr02041007.pdf" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Paper Publication</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>College Prediction using Data Mining</h3>
+                    </div>
+                    <p>Created a college prediction website using data mining techniques with MySQL and PHP to assist students in analyzing prospective colleges under Mumbai University.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">Data Mining</span>
+                        <span class="tech-tag">Predictive Analytics</span>
+                        <a href="https://docs.google.com/document/d/1UpZVE33HcOrR3U_7PRbvYxm2Lr0TzqaO/edit?usp=sharing&ouid=103545169536521371681&rtpof=true&sd=true" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Senior GIS Technologist/Consultant</h3>
+                        <h4>
+                            <a href="https://www.logicsolutionsgroup.com" target="_blank" rel="noopener noreferrer">
+                                LOGIC Solutions Group, Houston, TX
+                            </a>
+                        </h4>
+                        <span class="timeline-date">Sept 2022 - Present</span>
+                        <ul>
+                            <li>Led the GIS team supporting Harvest Midstream Energy under the IT Finance & ERP Solutions division.</li>
+                            <li>System Administrator for Enterprise GIS, Compliance Task Management (CTM), Pipeline Condition Management Software (PCMS), BricsCAD, CADWorx, Technical Toolboxes, and FORMS—ensuring data integrity and system uptime.</li>
+                            <li>Serve as IT Lead for end-to-end geospatial project delivery, leveraging expertise in imagery analysis, data modeling, system design to evaluate, architect, and deploy scalable, fault tolerant, highly available enterprise GIS solutions.</li>
+                            <li>Independently led GIS infrastructure migration to Microsoft Azure, implementing DevOps workflows, automated backups, VM deployments, user management, and SSO via Active Directory to improve scalability and security.</li>
+                            <li>Engineered scalable 2D/3D geospatial workflows integrating drone imagery (SiteScan) and mobile data capture (Survey123), reducing field ops cycle time by 30% through seamless web-GIS integration. </li>
+                            <li>Developed interactive dashboards using ArcGIS Dashboards and Power BI to support executive decision-making, while collaborating with Engineering, Compliance, and SCADA teams to align GIS tools with operational needs.</li>
+                            <li>Built automated ETL pipelines using Python for GIS and IT data ingestion, validation, and transformation, reducing manual workload by 30% and improving data consistency across cloud and on-prem systems.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>GIS Enterprise Architect</h3>
+                        <h4>
+                            <a href="https://www.avineon.com" target="_blank" rel="noopener noreferrer">
+                                Avineon, Saint Petersburg, FL
+                            </a>
+                        </h4>
+                        <span class="timeline-date">Jun 2021 - Sept 2022</span>
+                        <ul>
+                            <li>Provided strategic vision, roadmap, and technical leadership for designing and delivering end-to-end GIS solutions—collaborating with stakeholders, developers, architects, and clients across sectors including universities, government, utilities, and multinational corporations.</li>
+                            <li>Designed architecture diagrams and modernized distributed Enterprise GIS environments, implementing secure, scalable solutions with disaster recovery, post-deployment support, and cloud migration to AWS and Azure.</li>
+                            <li>Led IT integration efforts, working with authentication protocols such as Windows Domain Active Directory, LDAP, and SAML, while defining infrastructure specs and evaluating current and future enterprise GIS system requirements.</li>
+                            <li>Automated enterprise GIS deployments and upgrades using Python, Chef, and Cloud Builder templates; managed geodatabase design, versioning, replication, migration, and performance tuning for Oracle and SQL Server environments.</li>
+                            <li>Drove a 20–30% increase in GIS application usage and revenue by optimizing performance, delivering high-impact solutions, and maintaining detailed repositories of methodologies, walkthroughs, and business development documentation.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Enterprise Specialist/Consultant</h3>
+                        <h4>
+                            <a href="https://www.esri.com" target="_blank" rel="noopener noreferrer">
+                                Environmental Studies and Research Institute (Esri), Redlands, CA
+                            </a>
+                        </h4>
+                        <span class="timeline-date">Jun 2018 - Jun 2021</span>
+                        <ul>
+                            <li>Enterprise Specialist and SME in ArcGIS Enterprise stack including ArcGIS Pro, Portal, Server, DataStore, GeoEvent, Notebook Server, with advanced workflows in real-time data, linear referencing, and deep learning.</li>
+                            <li>Delivered standard and premium technical support for complex enterprise GIS workflows—such as real-time data streams, linear referencing, and deep learning—collaborating with Product Engineers and Tech Leads.</li>
+                            <li>Diagnosed and resolved high-priority issues, logged software defects, and maintained technical documentation.</li>
+                            <li>Supported IT workflows like firewalls, disaster recovery, reverse proxy configs, certificates, and security protocols.</li>
+                            <li>Authored knowledge base articles, conducted internal training, mentored analysts, and led technical interviews.</li>
+                            <li>Served as a Technical GIS Consultant for clients including Arkansas Electric (AR), Douglas County (NV), and Orange County Sanitation District (CA) under Esri Professional Services – Support Engagement.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Intern in Modeling and Forecasting Team </h3>
+                        <h4>
+                            <a href="https://scag.ca.gov" target="_blank" rel="noopener noreferrer">
+                                Southern California Association of Governments (SCAG), Los Angeles, CA, USA
+                            </a>
+                        </h4>
+                        <span class="timeline-date">Nov 2017 - May 2018</span>
+                        <ul>
+                            <li>Analyzed GIS data and developed maps, scripts, and documentation for a project titled ‘Scenario Planning Model: Data Management; Scenario Planning and Analysis’.</li>
+                            <li>Contributed to SCAG website updates using HTML, CSS, JavaScript, and GitHub/Bitbucket.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Geography Lab Technician and Research Intern</h3>
+                        <h4>
+                            <a href="https://www.csulb.edu" target="_blank" rel="noopener noreferrer">
+                                California State University–Long Beach, CA, USA
+                            </a>
+                        </h4>
+                        <span class="timeline-date">Sept 2016 - May 2017</span>
+                        <ul>
+                            <li>Supported GIS coursework, web app development, troubleshooting, and student mentoring while maintaining lab operations and technical resources.</li>
+                            <li>Mapped 50 sq. m of campus land cover and deployed temperature sensors for environmental data collection.</li>
+                            <li>Conducted spatial analysis and GIS modelling to explore relationships between land cover and microclimate variation.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>GIS Analyst</h3>
+                        <h4>
+                            <a href="https://www.cybertech.com" target="_blank" rel="noopener noreferrer">
+                                CyberTech Systems and Solutions Ltd, Mumbai, India
+                            </a>
+                        </h4>
+                        <span class="timeline-date">Oct 2013 - Jun 2016</span>
+                        <ul>
+                            <li>Providing technical assistance to ESRI software clients to effectively diagnose and resolve incidents.</li>
+                            <li>As the Subject Matter Expert (SME), documenting technical issues via incident tracking which involves authoring, technical editing, and publishing of Knowledge Base articles as well as authoritative online content.</li>
+                            <li>Identifying, understanding, and articulating solutions for customer issues by means of ArcGIS knowledge including ArcGIS for Desktop, ArcGIS for Desktop extensions, and other ArcGIS technologies.</li>
+                            <li>Setting up test environments for reproducing issues, perform exhaustive testing and collaborating with different teams and senior technical leads to figure out and resolve user's technical issues. </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3>
+                            <a href="https://www.cpace.csulb.edu/courses/master-of-science-in-geographic-information-science" target="_blank" rel="noopener noreferrer">
+                                MS in GeoInformatics
+                            </a>
+                        </h3>
+                        <span class="education-date">August 2017</span>
+                    </div>
+                    <h4>California State University - Long Beach (CSULB), California, USA</h4>
+                    <p class="gpa">GPA: 3.9</p>
+                    <p>The Master of Science in Geographic Information Science degree program (MSGISci) at CSULB is a one-year, 30-unit program designed to address the needs of individuals across the geospatial workforce who require focused and specialized training to become competitive and contribute to the range of positions in this diverse industry. This applied training program combines advanced technical and analytic training in the geospatial sciences with training in interpersonal and business skills. The program’s coursework is designed to develop competencies essential for successful entry into the geospatial workforce. </p>
+                  
+                 
+                </div>
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3>
+                            <a href="https://www.cdac.in/index.aspx?id=education" target="_blank" rel="noopener noreferrer">
+                                Post Graduate Diploma Certificate in GeoInfomatics
+                            </a>
+                        </h3>
+                        <span class="education-date">August 2013</span>
+                    </div>
+                    <h4>Center of Developent in Advanced Computing (CDAC), Pune, India</h4>
+                    <p> The Post Graduate Diploma in Geoinformatics (PG - DGi) aims to provide conceptual knowledge on GIS, remote sensing and related fields, and hands-on training in GIS, remote sensing data interpretation, digital image processing, digital photogrammetry, digital cartography and GPS. Geoinformatics/Geomatics is the synergy of multiple disciplines, namely, GIS, remote sensing, photogrammetry, cartography, GPS and geodesy. Geomatics deals with spatial and non-spatial data, their methods of acquisition, management, analysis, display, and dissemination.</p>
+                </div>
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3>
+                            <a href="https://tsec.edu/ce-about-department/" target="_blank" rel="noopener noreferrer">
+                                Bachelors of Engineering in Computer Science
+                            </a>
+                        </h3>
+                        <span class="education-date">July 2012</span>
+                    </div>
+                    <h4>Thadomal Shahani Engineering College (TSEC), University of Mumbai, Mumbai, India</h4>
+                    <p>Foundation in computer science principles, programming, and software engineering methodologies.</p>
+                </div>
+            </div>
+            <div class="certifications">
+                <h3>Certifications & Awards</h3>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <i class="fas fa-award"></i>
+                        <a href="https://www.gisci.org/Already-a-GISP/GISP-Registry/name/Anshu%20Pallav" target="_blank" rel="noopener noreferrer">
+                            Geographic Information Systems Professional (GISP)
+                        </a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://www.credly.com/badges/60bcdd0a-fcf8-4109-adc5-599131de5a62/linked_in_profile" target="_blank" rel="noopener noreferrer">
+                            Amazon Web Services (AWS) Cloud Practitioner
+                        </a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://www.credly.com/earner/earned/badge/4be85d5f-6412-4288-9934-30f505ace3a3" target="_blank" rel="noopener noreferrer">
+                            Esri ArcGIS Online Administration Associate 2024
+                        </a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://www.credly.com/earner/earned/badge/65b16bef-cac7-426b-9c4c-20735f273c33" target="_blank" rel="noopener noreferrer">
+                            Esri Certified Enterprise Administration Professional 19-001
+                        </a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://www.credly.com/earner/earned/badge/44772bdb-e4b9-4eb2-82cc-34fbbd098b10" target="_blank" rel="noopener noreferrer">
+                            Esri Certified Enterprise System Design Associate 10.5
+                        </a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://www.credly.com/earner/earned/badge/65b16bef-cac7-426b-9c4c-20735f273c33" target="_blank" rel="noopener noreferrer">
+                            Esri Certified Enterprise Administration Professional 19-001
+                        </a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://www.credly.com/earner/earned/share/16beced7-65aa-4074-8bfa-586739782271" target="_blank" rel="noopener noreferrer">
+                            Enterprise Administration Associate 10.5
+                        </a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://www.credly.com/earner/earned/badge/b9e551a7-a03c-40e8-b569-efa22adc2491" target="_blank" rel="noopener noreferrer">
+                            Esri Certified Web Application Developer Associate 10.4
+                        </a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://www.esri.com/training/TrainingRecord/Certificate/anshu.pallav/601e4ab2e1748e70357d987d/300" target="_blank" rel="noopener noreferrer">
+                            Esri Enterprise on Kubernetes
+                        </a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://www.esri.com/training/TrainingRecord/Certificate/anshu.pallav/5ff8efe344603e23b084a3d0/360" target="_blank" rel="noopener noreferrer">
+                            Esri Advanced Linear Referencing Information Model
+                        </a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://www.esri.com/training/TrainingRecord/Certificate/anshu.pallav/5d92ecb1ea17287deea7c2ce/300" target="_blank" rel="noopener noreferrer">
+                            Esri Python for Everyone
+                        </a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-trophy"></i>
+                        <a href="https://www.credly.com/preserved-badge/14332468" target="_blank" rel="noopener noreferrer">
+                            Innovation Award at the Climathon Long Beach Challenge 2017
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in touch</h3>
+                    <p>I'm always interested in new opportunities and collaborations. Let's discuss how we can work together!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>anshu.pallav@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (562)-330-0469 </span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Houston, TX</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/anshu-pallav/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/anspal/" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/anshu_pallav" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+
+
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqabvrvw" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+
+                    <!-- Optional: Redirect after submission -->
+                    <!-- <input type="hidden" name="_redirect" value="https://yourdomain.com/thank-you.html"> -->
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+
+                    <!-- Success message -->
+                    <p id="thankYouMessage" style="display:none; color: green; margin-top: 1rem;">
+                        Thank you for contacting me! I will follow up soon.
+                    </p>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Anshu Pallav. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
