@@ -42,25 +42,25 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
-  const map = L.map('hero-map', {
-    zoomControl: false,
-    attributionControl: false,
-    dragging: false,
-    scrollWheelZoom: false,
-    doubleClickZoom: false,
-    boxZoom: false,
-    keyboard: false,
-    tap: false,
-    touchZoom: false,
-  }).setView([29.7604, -95.3698], 11); // Example: Houston
+  document.addEventListener('DOMContentLoaded', function () {
+    const map = L.map('hero-map', {
+      zoomControl: false,
+      attributionControl: false,
+      dragging: false,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      boxZoom: false,
+      keyboard: false,
+      tap: false,
+      touchZoom: false
+    }).setView([29.7604, -95.3698], 10); // Houston, TX
 
-  L.tileLayer(
-    'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
-    {
-      maxZoom: 16,
-    }
-  ).addTo(map);
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 16
+    }).addTo(map);
+  });
 </script>
+
 
 
 <body>
