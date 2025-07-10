@@ -988,51 +988,80 @@ body {
     color: #444;
 }
 
-/* ===== DARK THEME FINAL OVERRIDES (v4) ===== */
+/* === Dark‑theme overrides (appended) === */
+:root{
+  --background-color:#121212;
+  --bg-light:#1e1e1e;
+  --bg-white:#1a1a1a;
+  --text-white:#ffffff;
+  --text-light:#d0d0d0;
+  --border-color:#333;
+}
 
-/* -------------------------------------------------
-   1.  Header / Navbar  (black bg, white links)
---------------------------------------------------*/
+/* Navbar always dark with white links */
 .navbar,
-.navbar.scrolled{
-  background:#000;
+.navbar.scrolled,
+.nav-menu{
+  background:#000!important;
+  box-shadow:none;
   backdrop-filter:none;
-  box-shadow:0 1px 2px rgba(0,0,0,.6);
 }
-.nav-menu{background:#000;}
-.nav-link{color:var(--text-white);font-weight:500;}
-.nav-link:hover{color:var(--primary-color);}
-.nav-link::after{background:var(--primary-color);}
-.hamburger span{background:var(--text-white);}
+.nav-link{color:var(--text-white)!important;font-weight:500}
+.nav-link:hover{color:var(--primary-color)!important}
 
-/* -------------------------------------------------
-   2.  Industry Expertise Card (white panel, dark text)
---------------------------------------------------*/
-.industry-card{
-  background:#ffffff;
+/* Dark section backgrounds */
+.about,.skills,.projects,.education,.certifications,.contact,.experience,.industry{
+  background:var(--bg-light)!important;
+  color:var(--text-light);
+}
+.section-title{color:var(--text-white)}
+
+/* Cards / panels */
+.stat,.skill-category,.project-card,.timeline-content,
+.education-card,.certifications,.contact-form,.industry-card{
+  background:var(--bg-white);
   border:1px solid var(--border-color);
-  color:var(--text-dark);
+  color:var(--text-light);
 }
-.industry-card h2{color:var(--text-dark);}
-.industry-card p,
-.industry-list{color:var(--text-dark);}
 
-/* -------------------------------------------------
-   3.  Skill‑tag pills (white bg, blue text)
---------------------------------------------------*/
+/* Headings */
+.stat h3,.skill-category h3,.project-header h3,
+.timeline-content h3,.education-header h3,
+.certifications h3,.contact-info h3{
+  color:var(--text-white);
+}
+
+/* Links default white */
+a{color:var(--text-white)}
+a:hover{color:var(--primary-color)}
+
+/* Skill tags, buttons */
 .skill-tag{
-  background:#ffffff;
+  background:#fff;
   color:var(--primary-color);
   border:1px solid var(--primary-color);
 }
 .skill-tag:hover{
   background:var(--primary-color);
   color:var(--text-white);
-  transform:scale(1.05);
 }
 
-/* -------------------------------------------------
-   4.  Global link colour = white
---------------------------------------------------*/
-a{color:var(--text-white);}
-a:hover{color:var(--primary-color);}
+/* Buttons */
+.btn-primary{
+  background:var(--primary-color);
+  color:var(--text-white);
+}
+.btn-primary:hover{
+  background:transparent;
+  color:var(--primary-color);
+  border-color:var(--primary-color);
+}
+
+/* Form fields */
+.form-group input,
+.form-group textarea{
+  background:var(--bg-white);
+  color:var(--text-white);
+  border:2px solid var(--border-color);
+}
+input::placeholder,textarea::placeholder{color:var(--text-light)}
