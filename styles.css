@@ -112,11 +112,14 @@ body {
 
 .hero {
     padding: 120px 0 80px;
-    background: var(--gradient-primary);
+    /*background: var(--gradient-primary);*/
+    background: transparent; /* ← ADD this */
     color: var(--text-white);
     min-height: 100vh;
     display: flex;
     align-items: center;
+    position: relative; /* ← ADD this to layer properly over the map */
+    z-index: 1; /* ← Ensure it's on top */;
 }
 
 .hero-content {
