@@ -1124,3 +1124,41 @@ a:hover {
     background: #1e40af !important;
     color: white !important;
 }
+/* Fix mobile burger menu to be full-screen overlay with dark background and centered items */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background: #000; /* dark overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    transition: left 0.3s ease-in-out;
+    z-index: 2000; /* make sure it stays above hero */
+  }
+
+  .nav-menu.active {
+    left: 0; /* slide in */
+  }
+
+  .nav-menu .nav-link {
+    font-size: 1.5rem;
+    color: var(--text-white);
+  }
+
+  .nav-menu .nav-link:hover {
+    color: var(--primary-color);
+  }
+
+  /* Adjust hamburger button for visibility on top */
+  .hamburger {
+    z-index: 2100;
+    position: relative;
+  }
+}
