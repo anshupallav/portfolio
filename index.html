@@ -8,57 +8,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Leaflet CSS -->
-<link  rel="stylesheet"  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<!-- Leaflet JS -->
-<script  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 </head>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contactForm");
-    const thankYouMessage = document.getElementById("thankYouMessage");
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contactForm");
+        const thankYouMessage = document.getElementById("thankYouMessage");
 
-    form.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        const formData = new FormData(form);
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const formData = new FormData(form);
 
-        const response = await fetch(form.action, {
-            method: "POST",
-            body: formData,
-            headers: {
-                Accept: "application/json",
-            },
+            const response = await fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    Accept: "application/json",
+                },
+            });
+
+            if (response.ok) {
+                form.reset();
+                thankYouMessage.style.display = "block";
+            } else {
+                alert("Oops! There was a problem submitting your form.");
+            }
         });
-
-        if (response.ok) {
-            form.reset();
-            thankYouMessage.style.display = "block";
-        } else {
-            alert("Oops! There was a problem submitting your form.");
-        }
     });
-});
 </script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const map = L.map('hero-map', {
-      zoomControl: false,
-      attributionControl: false,
-      dragging: false,
-      scrollWheelZoom: false,
-      doubleClickZoom: false,
-      boxZoom: false,
-      keyboard: false,
-      tap: false,
-      touchZoom: false
-    }).setView([29.7604, -95.3698], 10); // Houston, TX
+    document.addEventListener('DOMContentLoaded', function () {
+        const map = L.map('hero-map', {
+            zoomControl: false,
+            attributionControl: false,
+            dragging: false,
+            scrollWheelZoom: false,
+            doubleClickZoom: false,
+            boxZoom: false,
+            keyboard: false,
+            tap: false,
+            touchZoom: false
+        }).setView([29.7604, -95.3698], 10); // Houston, TX
 
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 16
-    }).addTo(map);
-  });
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+            maxZoom: 16
+        }).addTo(map);
+    });
 </script>
 
 
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <a href="#about" class="nav-link">About</a>
                 <a href="#industry" class="nav-link">Industry Expertise</a>
                 <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#projects" class="nav-link">Projects/Presentations</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
-               
+
                 <h1><span class="highlight">Anshu Pallav</span></h1>
                 <h2>Enterprise GIS Solutions Architect</h2>
                 <p>I am a Senior Enterprise GIS Architect at LOGIC Solutions Group in Houston, TX, leveraging over a decade of experience in geospatial information management, project leadership, and enterprise GIS solutions. Throughout my career, I have collaborated with leading organizations such as Esri, Avineon, and Cybertech, focusing on the design, development, and deployment of scalable GIS infrastructures.</p>
@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </section>
 
-
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
@@ -172,19 +171,20 @@ document.addEventListener("DOMContentLoaded", function () {
                         <span class="skill-tag">Chef Scripts</span>
                     </div>
                 </div>
-                           
+
                 <div class="skill-category">
-                    <h3>Programming & Development</h3>
+                    <h3>WebGIS APIs</h3>
                     <div class="skill-items">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">R</span>
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">Java/JavaScript</span>
-                        <span class="skill-tag">VB.Net</span>
-                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">ArcGIS API for JavaScript</span>
+                        <span class="skill-tag">ArcGIS API for Python</span>
+                        <span class="skill-tag">Leaflet</span>
+                        <span class="skill-tag">MapBox</span>
+                        <span class="skill-tag">OpenLayers</span>
+                        <span class="skill-tag">PyQGIS</span>
+                        <span class="skill-tag">Node.js</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-category">
                     <h3>GIS Platforms and Tools</h3>
                     <div class="skill-items">
@@ -201,18 +201,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         <span class="skill-tag">GeoServer</span>
                     </div>
                 </div>
+
                 <div class="skill-category">
-                    <h3>WebGIS APIs</h3>
+                    <h3>Programming & Development</h3>
                     <div class="skill-items">
-                        <span class="skill-tag">ArcGIS API for JavaScript</span>
-                        <span class="skill-tag">ArcGIS API for Python</span>
-                        <span class="skill-tag">Leaflet</span>
-                        <span class="skill-tag">MapBox</span>
-                        <span class="skill-tag">OpenLayers</span>
-                        <span class="skill-tag">PyQGIS</span>
-                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Java/JavaScript</span>
+                        <span class="skill-tag">VB.Net</span>
+                        <span class="skill-tag">HTML/CSS</span>
                     </div>
                 </div>
+
                 <div class="skill-category">
                     <h3>Data Analysis & Visualization</h3>
                     <div class="skill-items">
@@ -243,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <span class="skill-tag">Classification</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-category">
                     <h3>Tools & Technologies</h3>
                     <div class="skill-items">
@@ -278,14 +279,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title">Projects / Presentations</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Sustainable Tourism Web Map for the City of Long Beach using bikes: LB Green Travel</h3>
                         <div class="project-links">
                             <a href="https://github.com/anspal/lbgreentravel" class="project-link" target="_blank" title="View Source on GitHub"><i class="fab fa-github"></i></a>
-                          
+
                         </div>
                     </div>
                     <p>Developed an AWS-based interactive sustainable travel website using an open-source full-stack GIS enterprise architecture using free student subscription. </p>
@@ -318,6 +319,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <div class="project-card">
                     <div class="project-header">
+                        <h3>Road Impact Assessment on Coastal Land Use Areas Using Remote Sensing Data </h3>
+                    </div>
+                    <p>Project for GIS 606 Advanced Remote Sensing course shocasing the GIS modeling and analysis to figure out the for impacts of major upcoming roads in the city of Mumbai, India.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">ArcGIS Pro</span>
+                        <span class="tech-tag">Sattelite Imagery</span>
+                        <span class="tech-tag">Digital Image Processing</span>
+                        <span class="tech-tag">Remote Sensing</span>
+                        <span class="tech-tag">Predictive Analytics</span>
+                        <a href="https://docs.google.com/document/d/1UpZVE33HcOrR3U_7PRbvYxm2Lr0TzqaO/edit?usp=sharing&ouid=103545169536521371681&rtpof=true&sd=true" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Report</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
                         <h3>Parallel Computing for Remote Sensing Data Processing</h3>
                     </div>
                     <p>Designed a parallel computing workflow for remote sensing data processing using GDAL, OpenMPI on the PARAM Yuva II Supercomputer.</p>
@@ -343,6 +358,95 @@ document.addEventListener("DOMContentLoaded", function () {
                         <a href="https://docs.google.com/document/d/1UpZVE33HcOrR3U_7PRbvYxm2Lr0TzqaO/edit?usp=sharing&ouid=103545169536521371681&rtpof=true&sd=true" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Report</a>
                     </div>
                 </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Student Showcase Presentation @ SCAG</h3>
+                    </div>
+                    <p>REGIONAL CONFERENCE & GENERAL ASSEMBLY 2018 SOUTHERN CALIFORNIA AT A CROSSROADS On May 3, SCAG’s annual Regional Conference & General Assembly featured a special Student Showcase session featuring GIS Story Maps selected through a competitive application process. This was an opportunity for me to share my project work with elected officials, planners, and regional leaders.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SCAG</span>
+                        <span class="tech-tag">Poster Presenation</span>
+                        <a href="https://scag.ca.gov/post/2018-regional-conference-general-assembly-0" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Story Map</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>GeoMentor Presentation @ Notre Dame High School</h3>
+                    </div>
+                    <p>As a GeoMentor, I had the opportunity to engage with students and presented a story map which covered many topics like Introduction to GIS, GIS Components, GIS Applications, Future Scope. </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">GeoMentor</span>
+                        <span class="tech-tag">High School Presenation</span>
+                        <a href="https://ess.maps.arcgis.com/apps/Cascade/index.html?appid=06c8cf3b29ee44eebd73f21132cec7dd" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Story Map</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Brown Bag Session @ Esri Support Services</h3>
+                    </div>
+                    <p>Conducted a brown bag on a topic titled ‘Exploring GeoEvent Server to Work with Live Mapping of COVID-19 Related Datasets’. The demo was created for live incident tracking and alerts of people count while one walks down a street of NYC.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">GeoEvent</span>
+                        <span class="tech-tag">ArcGIS Enterprise</span>
+                        <span class="tech-tag">SafeGraph Weekly Patterns Data</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Virtual Demo Session Presenter @ Esri User Confenence 2020 </h3>
+                    </div>
+                    <p>Virtually presented a technical demo session titled ‘ArcGIS Insights: Esri Support’s Perspective’.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">ArcGIS Insights</span>
+                        <span class="tech-tag">ArcGIS Enterprise</span>
+                        <a href="https://community.esri.com/ccqpr47374/attachments/ccqpr47374/esri-technical-support-docs/2/1/UC2020-Tech-Supt-Sessions.pdf" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Tech Support Presenations</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Demo Session Presenter @ Esri User Confenence 2019 </h3>
+                    </div>
+                    <p>Presented an in-person demo session titled 'Troubleshoot Like an Esri Support Pro: Collector for ArcGIS' at the Esri User Conference 2019.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">ArcGIS Insights</span>
+                        <span class="tech-tag">ArcGIS Enterprise</span>
+                        <a href="https://community.esri.com/ccqpr47374/attachments/ccqpr47374/esri-technical-support-docs/2/1/UC2020-Tech-Supt-Sessions.pdf" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Tech Support Presenations</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Enterprise Team Presentation @ Esri</h3>
+                    </div>
+                    <p>Presented a topic 'Working with ArcGIS Enterprise Raster Analytics' which covered topics of installation, deployment, configuration and usage of image services, raster analytics and deep learning..</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">Raster Analytics</span>
+                        <a href="" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">PDF</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Climathon Presenter @ CSULB</h3>
+                    </div>
+                    <p> Participated, created a test website showcasing active tranportation and presentation/pitched our idea to stakeholders from the City of Long Beach by highlighting my sustainable travel and tourism project.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">CSULB</span>
+                        <span class="tech-tag">Active Transport</span>
+                        <a href="https://www.csulb.edu/institute-innovation-entrepreneurship/climathon-long-beach" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Climathon</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Presenter @ ERD Summit 2024</h3>
+                    </div>
+                    <p>Presenting at Energy Drone and Robotics Summit 2024 : Manage drones imagery with SiteScan for ArcGIS.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">CSULB</span>
+                        <span class="tech-tag">Active Transport</span>
+                        <a href="https://events.american-tradeshow.com/edrs24/speaker/1242135/anshu-pallav" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">ERD Summit</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -361,7 +465,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             </a>
                         </h4>
                         <span class="timeline-date">Sept 2022 - Present</span>
-                        
+
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -374,7 +478,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             </a>
                         </h4>
                         <span class="timeline-date">Jun 2021 - Sept 2022</span>
-                        
+
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -387,7 +491,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             </a>
                         </h4>
                         <span class="timeline-date">Jun 2018 - Jun 2021</span>
-                        
+
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -400,7 +504,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             </a>
                         </h4>
                         <span class="timeline-date">Nov 2017 - May 2018</span>
-                        
+
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -413,7 +517,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             </a>
                         </h4>
                         <span class="timeline-date">Sept 2016 - May 2017</span>
-                        
+
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -426,7 +530,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             </a>
                         </h4>
                         <span class="timeline-date">Oct 2013 - Jun 2016</span>
-                       
+
                     </div>
                 </div>
             </div>
@@ -449,8 +553,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h4>California State University - Long Beach (CSULB), California, USA</h4>
                     <p class="gpa">GPA: 3.9</p>
                     <p>The Master of Science in Geographic Information Science degree program (MSGISci) at CSULB is a one-year, 30-unit program designed to address the needs of individuals across the geospatial workforce who require focused and specialized training to become competitive and contribute to the range of positions in this diverse industry. This applied training program combines advanced technical and analytic training in the geospatial sciences with training in interpersonal and business skills. The program’s coursework is designed to develop competencies essential for successful entry into the geospatial workforce. </p>
-                  
-                 
+
+
                 </div>
                 <div class="education-card">
                     <div class="education-header">
@@ -587,7 +691,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
 
-              <form  action="https://formspree.io/f/mqabvrvw"  method="POST"  class="contact-form"  id="contactForm">
+                <form action="https://formspree.io/f/mqabvrvw" method="POST" class="contact-form" id="contactForm">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
                     </div>
