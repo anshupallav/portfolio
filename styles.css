@@ -41,13 +41,26 @@ body {
     padding: 0 20px;
 }
 
-.navbar,
+/* Make the navbar persistent/fixed at the top */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+/* Style changes when scrolled (dark background) */
 .navbar.scrolled {
     background-color: #000000 !important;
     color: white !important;
     backdrop-filter: none !important;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
 }
+
 
 position: fixed;
 top: 0;
