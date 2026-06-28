@@ -1,87 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ============================================================
+         DOCUMENT METADATA
+         ============================================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anshu Pallav, GISP - Enterprie GIS Solutions Architect</title>
+    <title>Anshu Pallav, GISP - Enterprise GIS Solutions Architect</title>
+
+    <!-- ============================================================
+         STYLESHEETS & FONTS
+         ============================================================ -->
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+    <!-- Leaflet (used for the dark, non-interactive hero map background) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("contactForm");
-        const thankYouMessage = document.getElementById("thankYouMessage");
-
-        form.addEventListener("submit", async function (e) {
-            e.preventDefault();
-            const formData = new FormData(form);
-
-            const response = await fetch(form.action, {
-                method: "POST",
-                body: formData,
-                headers: {
-                    Accept: "application/json",
-                },
-            });
-
-            if (response.ok) {
-                form.reset();
-                thankYouMessage.style.display = "block";
-            } else {
-                alert("Oops! There was a problem submitting your form.");
-            }
-        });
-    });
-</script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const map = L.map('hero-map', {
-            zoomControl: false,
-            attributionControl: false,
-            dragging: false,
-            scrollWheelZoom: false,
-            doubleClickZoom: false,
-            boxZoom: false,
-            keyboard: false,
-            tap: false,
-            touchZoom: false
-        }).setView([29.7604, -95.3698], 10); // Houston, TX
-
-        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-            maxZoom: 16
-        }).addTo(map);
-    });
-</script>
-
-
-
 <body>
+
+    <!-- ============================================================
+         NAVIGATION BAR
+         Sticky/fixed nav with anchor links to each page section.
+         The hamburger icon toggles .nav-menu on small screens (see script.js).
+         NOTE: Education and Certifications are separate sections
+         (#education and #certification) with their own nav links,
+         since they're different categories of credential. Projects
+         and Presentations are likewise separate sections.
+         ============================================================ -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <h2>Portfolio</h2>
             </div>
+
             <div class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#industry" class="nav-link">Industry Expertise</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#education" class="nav-link">Education</a>
-                <a href="#education" class="nav-link">Certification</a>
+                <a href="#certification" class="nav-link">Certification</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
-               
-             
+                <a href="#presentations" class="nav-link">Presentations</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
+
+            <!-- Mobile menu toggle (3-bar icon) -->
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -89,36 +58,87 @@
             </div>
         </div>
     </nav>
+
+    <!-- ============================================================
+         HERO MAP BACKGROUND
+         A static, non-interactive Leaflet map (dark gray basemap)
+         centered on Houston, TX, used purely as a visual backdrop
+         behind the hero section. All interaction is disabled.
+         ============================================================ -->
     <div id="hero-map"></div>
+
+    <!-- ============================================================
+         SECTION: HERO / HOME
+         ============================================================ -->
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
-
                 <h1><span class="highlight">Anshu Pallav, GISP</span></h1>
                 <h2>Enterprise GIS Solutions Architect</h2>
-                <p>I am a Senior Enterprise GIS Architect at LOGIC Solutions Group in Houston, TX, leveraging over a decade of experience in geospatial information management, project leadership, and enterprise GIS solutions. Throughout my career, I have collaborated with leading organizations such as Esri, Avineon, and Cybertech, focusing on the design, development, and deployment of scalable GIS infrastructures.</p>
+                <p>
+                    I am a Senior Enterprise GIS Architect at LOGIC Solutions Group in Houston, TX,
+                    leveraging over a decade of experience in geospatial information management,
+                    project leadership, and enterprise GIS solutions. Throughout my career, I have
+                    collaborated with leading organizations such as Esri, Avineon, and Cybertech,
+                    focusing on the design, development, and deployment of scalable GIS infrastructures.
+                </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Get In Touch</a>
                     <a href="#projects" class="btn btn-secondary">View My Work</a>
                 </div>
             </div>
+
             <div class="hero-image">
                 <div class="profile-circle">
-                    <img src="anshu.jpg" alt="ANshu Pallav Profile" class="profile-image">
+                    <img src="anshu.jpg" alt="Anshu Pallav Profile" class="profile-image">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ============================================================
+         SECTION: ABOUT ME
+         ============================================================ -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
+
             <div class="about-content">
                 <div class="about-text">
-                    <p>I’m Anshu Pallav, an Enterprise GIS Solutions Architect with over a decade of experience designing, deploying, and optimizing geospatial systems for complex business environments. I specialize in building scalable GIS infrastructures that integrate cloud technologies, automated data workflows, and cutting-edge visualization tools to support critical operations in energy, utilities, and government sectors.</p>
-                    <p>Currently, I lead enterprise GIS initiatives at Harvest Midstream through LOGIC Solutions Group, where I architect high-availability systems, automate data pipelines, and deliver actionable insights through platforms like ArcGIS Pro, Survey123, Power BI, and Microsoft Azure. My work bridges strategic IT planning and real-world field operations—whether it's modernizing infrastructure with DevOps, integrating drone and mobile data collection for field workflows, or developing executive dashboards that drive data-informed decisions.</p>
-                    <p>My core expertise lies in the Esri ArcGIS suite, where I have orchestrated end-to-end implementations—from geospatial data management and GIS architecture to custom application development. I am also well-versed in integrating cloud technologies to enhance performance, scalability, and cost-efficiency for enterprise-level GIS deployments.</p>
-                    <p>With past roles at Esri and Avineon, I’ve delivered enterprise-grade GIS solutions across the U.S. and internationally, backed by a strong foundation in software development, data modeling, and spatial analytics. I'm a certified GISP, AWS Cloud Practitioner, and hold multiple advanced Esri certifications. My passion lies in creating intelligent geospatial ecosystems that are robust, user-centric, and future-ready.</p>
+                    <p>
+                        I'm Anshu Pallav, an Enterprise GIS Solutions Architect with over a decade of
+                        experience designing, deploying, and optimizing geospatial systems for complex
+                        business environments. I specialize in building scalable GIS infrastructures
+                        that integrate cloud technologies, automated data workflows, and cutting-edge
+                        visualization tools to support critical operations in energy, utilities, and
+                        government sectors.
+                    </p>
+                    <p>
+                        Currently, I lead enterprise GIS initiatives at Harvest Midstream through LOGIC
+                        Solutions Group, where I architect high-availability systems, automate data
+                        pipelines, and deliver actionable insights through platforms like ArcGIS Pro,
+                        Survey123, Power BI, and Microsoft Azure. My work bridges strategic IT planning
+                        and real-world field operations—whether it's modernizing infrastructure with
+                        DevOps, integrating drone and mobile data collection for field workflows, or
+                        developing executive dashboards that drive data-informed decisions.
+                    </p>
+                    <p>
+                        My core expertise lies in the Esri ArcGIS suite, where I have orchestrated
+                        end-to-end implementations—from geospatial data management and GIS architecture
+                        to custom application development. I am also well-versed in integrating cloud
+                        technologies to enhance performance, scalability, and cost-efficiency for
+                        enterprise-level GIS deployments.
+                    </p>
+                    <p>
+                        With past roles at Esri and Avineon, I've delivered enterprise-grade GIS
+                        solutions across the U.S. and internationally, backed by a strong foundation in
+                        software development, data modeling, and spatial analytics. I'm a certified
+                        GISP, AWS Cloud Practitioner, and hold multiple advanced Esri certifications. My
+                        passion lies in creating intelligent geospatial ecosystems that are robust,
+                        user-centric, and future-ready.
+                    </p>
+
+                    <!-- Quick-stat highlights -->
                     <div class="about-stats">
                         <div class="stat">
                             <h3>10+</h3>
@@ -138,30 +158,44 @@
         </div>
     </section>
 
+    <!-- ============================================================
+         SECTION: INDUSTRY EXPERTISE
+         ============================================================ -->
     <section id="industry" class="section industry">
         <div class="industry-content">
             <div class="industry-card">
                 <h2>Industry Expertise</h2>
-                <p>I have delivered GIS and geospatial solutions across a diverse set of industries, applying spatial intelligence to solve complex infrastructure, planning, and data integration challenges. My domain experience spans:</p>
+                <p>
+                    I have delivered GIS and geospatial solutions across a diverse set of industries,
+                    applying spatial intelligence to solve complex infrastructure, planning, and data
+                    integration challenges. My domain experience spans:
+                </p>
                 <ul class="industry-list">
                     <li><strong>Oil & Gas:</strong> Midstream Pipeline</li>
                     <li><strong>Utilities:</strong> Water & Electric (Private and Public)</li>
-                    <li><strong>Transportation:</strong>DOT for various states</li>
+                    <li><strong>Transportation:</strong> DOT for various states</li>
                     <li><strong>Regional Planning:</strong> Southern California and India</li>
                     <li><strong>Emergency Services:</strong> Hospitals, Sanitation, Disaster Response</li>
                     <li><strong>Cities & Counties:</strong> Across multiple States in USA</li>
                     <li><strong>Education (Universities):</strong> CSU Long Beach, UNC Chapel Hill, University of Michigan</li>
-                    <li><strong>Organizations:</strong> McDonald’s, Esri, SFPUC</li>
+                    <li><strong>Organizations:</strong> McDonald's, Esri, SFPUC</li>
                     <li><strong>Drones:</strong> EDR Summit, Drone Enthusiast</li>
                 </ul>
             </div>
         </div>
     </section>
 
+    <!-- ============================================================
+         SECTION: PROFESSIONAL EXPERIENCE
+         Reverse-chronological timeline of roles.
+         ============================================================ -->
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
+
             <div class="timeline">
+
+                <!-- LOGIC Solutions Group -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
@@ -172,9 +206,10 @@
                             </a>
                         </h4>
                         <span class="timeline-date">Sept 2022 - Present</span>
-
                     </div>
                 </div>
+
+                <!-- Avineon -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
@@ -185,35 +220,38 @@
                             </a>
                         </h4>
                         <span class="timeline-date">Jun 2021 - Sept 2022</span>
-
                     </div>
                 </div>
+
+                <!-- Esri -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <h3>Enterprise Specialist/Consultant</h3>
                         <h4>
                             <a href="https://www.esri.com" target="_blank" rel="noopener noreferrer">
-                                Environmental Studies and Research Institute (Esri), Redlands, CA
+                                Environmental Systems Research Institute (Esri), Redlands, CA
                             </a>
                         </h4>
                         <span class="timeline-date">Jun 2018 - Jun 2021</span>
-
                     </div>
                 </div>
+
+                <!-- SCAG Internship -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Intern in Modeling and Forecasting Team </h3>
+                        <h3>Intern in Modeling and Forecasting Team</h3>
                         <h4>
                             <a href="https://scag.ca.gov" target="_blank" rel="noopener noreferrer">
                                 Southern California Association of Governments (SCAG), Los Angeles, CA, USA
                             </a>
                         </h4>
                         <span class="timeline-date">Nov 2017 - May 2018</span>
-
                     </div>
                 </div>
+
+                <!-- CSULB Lab Tech -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
@@ -224,9 +262,10 @@
                             </a>
                         </h4>
                         <span class="timeline-date">Sept 2016 - May 2017</span>
-
                     </div>
                 </div>
+
+                <!-- CyberTech -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
@@ -237,17 +276,25 @@
                             </a>
                         </h4>
                         <span class="timeline-date">Oct 2013 - Jun 2016</span>
-
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
-  <section id="education" class="education">
+
+    <!-- ============================================================
+         SECTION: EDUCATION
+         Degree / diploma cards only. Certifications & awards live in
+         their own section below (#certification) since they're a
+         different category of credential.
+         ============================================================ -->
+    <section id="education" class="education">
         <div class="container">
             <h2 class="section-title">Education</h2>
+
             <div class="education-grid">
-                
+
                 <div class="education-card">
                     <div class="education-header">
                         <h3>
@@ -258,126 +305,152 @@
                         <span class="education-date">August 2017</span>
                     </div>
                     <h4>California State University - Long Beach, California, USA</h4>
-                    <p class="gpa">GPA: 3.9</p>  
+                    <p class="gpa">GPA: 3.9</p>
                 </div>
-                
+
                 <div class="education-card">
                     <div class="education-header">
                         <h3>
                             <a href="https://www.cdac.in/index.aspx?id=edu_acts_PGDiplomaCoursesAdmission" target="_blank" rel="noopener noreferrer">
-                                PG Diploma Certificate in GeoInfomatics
+                                PG Diploma Certificate in GeoInformatics
                             </a>
                         </h3>
                         <span class="education-date">August 2013</span>
                     </div>
-                    <h4>Centre for Development of Advanced Computing [CDAC], Pune, India</h4>
+                    <h4>Centre for Development of Advanced Computing (CDAC), Pune, India</h4>
                     <p class="gpa">GPA: 3.5</p>
                 </div>
-                
+
                 <div class="education-card">
                     <div class="education-header">
                         <h3>
                             <a href="https://tsec.edu/ce-about-department/" target="_blank" rel="noopener noreferrer">
-                                B.E in Computer Science Engineering
+                                B.E. in Computer Science Engineering
                             </a>
                         </h3>
                         <span class="education-date">July 2012</span>
                     </div>
-                    <h4>Thadomal Shahani Engineering College [TSEC], University of Mumbai, Mumbai, India</h4>
+                    <h4>Thadomal Shahani Engineering College (TSEC), University of Mumbai, Mumbai, India</h4>
                     <p class="gpa">GPA: 3.2</p>
                 </div>
+
             </div>
         </div>
     </section>
-        
+
+    <!-- ============================================================
+         SECTION: CERTIFICATIONS & AWARDS
+         NOTE: this section reuses the .education styling class so it
+         visually matches the Education section above, but lives at
+         its own #certification anchor with its own nav link.
+         ============================================================ -->
     <section id="certification" class="education">
         <div class="container">
             <h2 class="section-title">Certifications & Awards</h2>
-            
+
             <div class="certifications">
-                <h3>Certifications & Awards</h3>
                 <div class="cert-grid">
+
                     <div class="cert-item">
                         <i class="fas fa-award"></i>
                         <a href="https://www.gisci.org/Already-a-GISP/GISP-Registry/name/Anshu%20Pallav" target="_blank" rel="noopener noreferrer">
                             Geographic Information Systems Professional (GISP)
                         </a>
                     </div>
+
                     <div class="cert-item">
                         <i class="fas fa-certificate"></i>
                         <a href="https://www.credly.com/badges/60bcdd0a-fcf8-4109-adc5-599131de5a62/linked_in_profile" target="_blank" rel="noopener noreferrer">
                             Amazon Web Services (AWS) Cloud Practitioner
                         </a>
                     </div>
+
                     <div class="cert-item">
                         <i class="fas fa-certificate"></i>
                         <a href="https://www.credly.com/badges/4be85d5f-6412-4288-9934-30f505ace3a3" target="_blank" rel="noopener noreferrer">
                             Esri ArcGIS Online Administration Associate 2024
                         </a>
                     </div>
+
                     <div class="cert-item">
                         <i class="fas fa-certificate"></i>
                         <a href="https://www.credly.com/badges/65b16bef-cac7-426b-9c4c-20735f273c33" target="_blank" rel="noopener noreferrer">
                             Esri Certified Desktop Professional 19-001
                         </a>
                     </div>
+
                     <div class="cert-item">
                         <i class="fas fa-certificate"></i>
                         <a href="https://www.credly.com/badges/44772bdb-e4b9-4eb2-82cc-34fbbd098b10" target="_blank" rel="noopener noreferrer">
                             Esri Certified Enterprise System Design Associate 10.5
                         </a>
                     </div>
+
                     <div class="cert-item">
                         <i class="fas fa-certificate"></i>
                         <a href="https://www.credly.com/badges/1b02a826-ca69-4c21-8309-a4ca4574012c" target="_blank" rel="noopener noreferrer">
                             Esri Certified Enterprise Administration Professional 19-001
                         </a>
                     </div>
+
                     <div class="cert-item">
                         <i class="fas fa-certificate"></i>
                         <a href="https://www.credly.com/badges/16beced7-65aa-4074-8bfa-586739782271" target="_blank" rel="noopener noreferrer">
                             Enterprise Administration Associate 10.5
                         </a>
                     </div>
+
                     <div class="cert-item">
                         <i class="fas fa-certificate"></i>
                         <a href="https://www.credly.com/badges/b9e551a7-a03c-40e8-b569-efa22adc2491" target="_blank" rel="noopener noreferrer">
                             Esri Certified Web Application Developer Associate 10.4
                         </a>
                     </div>
+
                     <div class="cert-item">
                         <i class="fas fa-certificate"></i>
                         <a href="https://www.esri.com/training/TrainingRecord/Certificate/anshu.pallav/601e4ab2e1748e70357d987d/300" target="_blank" rel="noopener noreferrer">
                             Esri Enterprise on Kubernetes
                         </a>
                     </div>
+
                     <div class="cert-item">
                         <i class="fas fa-certificate"></i>
                         <a href="https://www.esri.com/training/TrainingRecord/Certificate/anshu.pallav/5ff8efe344603e23b084a3d0/360" target="_blank" rel="noopener noreferrer">
                             Esri Introduction to Linear Referencing
                         </a>
                     </div>
+
                     <div class="cert-item">
                         <i class="fas fa-certificate"></i>
                         <a href="https://www.esri.com/training/TrainingRecord/Certificate/anshu.pallav/5d92ecb1ea17287deea7c2ce/300" target="_blank" rel="noopener noreferrer">
                             Esri Python for Everyone
                         </a>
                     </div>
+
                     <div class="cert-item">
                         <i class="fas fa-trophy"></i>
                         <a href="https://www.credly.com/preserved-badge/14332468" target="_blank" rel="noopener noreferrer">
                             Innovation Award at the Climathon Long Beach Challenge 2017
                         </a>
                     </div>
+
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ============================================================
+         SECTION: TECHNICAL SKILLS
+         Each .skill-category groups related tools/technologies.
+         ============================================================ -->
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
+
             <div class="skills-grid">
+
+                <!-- Cloud, DevOps & Automation -->
                 <div class="skill-category">
                     <h3>Cloud, DevOps & Automations</h3>
                     <div class="skill-items">
@@ -391,6 +464,7 @@
                     </div>
                 </div>
 
+                <!-- WebGIS APIs -->
                 <div class="skill-category">
                     <h3>WebGIS APIs</h3>
                     <div class="skill-items">
@@ -404,6 +478,7 @@
                     </div>
                 </div>
 
+                <!-- GIS Platforms and Tools -->
                 <div class="skill-category">
                     <h3>GIS Platforms and Tools</h3>
                     <div class="skill-items">
@@ -421,6 +496,7 @@
                     </div>
                 </div>
 
+                <!-- Programming & Development -->
                 <div class="skill-category">
                     <h3>Programming & Development</h3>
                     <div class="skill-items">
@@ -433,6 +509,7 @@
                     </div>
                 </div>
 
+                <!-- Data Analysis & Visualization -->
                 <div class="skill-category">
                     <h3>Data Analysis & Visualization</h3>
                     <div class="skill-items">
@@ -444,6 +521,8 @@
                         <span class="skill-tag">Predictive Modeling</span>
                     </div>
                 </div>
+
+                <!-- 3D / Modelling -->
                 <div class="skill-category">
                     <h3>Modelling</h3>
                     <div class="skill-items">
@@ -454,6 +533,8 @@
                         <span class="skill-tag">FME</span>
                     </div>
                 </div>
+
+                <!-- Machine Learning -->
                 <div class="skill-category">
                     <h3>Machine Learning</h3>
                     <div class="skill-items">
@@ -464,16 +545,19 @@
                     </div>
                 </div>
 
+                <!-- Tools & Technologies (version control, PM) -->
                 <div class="skill-category">
                     <h3>Tools & Technologies</h3>
                     <div class="skill-items">
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">Git Desktop</span>
-                        <span class="skill-tag">Bit Bucker</span>
+                        <span class="skill-tag">Bitbucket</span>
                         <span class="skill-tag">CI/CD</span>
                         <span class="skill-tag">JIRA</span>
                     </div>
                 </div>
+
+                <!-- Database Systems -->
                 <div class="skill-category">
                     <h3>Database Systems</h3>
                     <div class="skill-items">
@@ -483,6 +567,8 @@
                         <span class="skill-tag">PostgreSQL</span>
                     </div>
                 </div>
+
+                <!-- Esri + Microsoft 365 Integrators -->
                 <div class="skill-category">
                     <h3>Esri-Microsoft Integrators</h3>
                     <div class="skill-items">
@@ -492,23 +578,37 @@
                         <span class="skill-tag">ArcGIS Maps for PowerBI</span>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- ============================================================
+         SECTION: PROJECTS
+         Hands-on project work (apps, research, papers).
+         Presentations/talks live in their own section below.
+         ============================================================ -->
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">Projects</h2>
+
             <div class="projects-grid">
-                
+
+                <!-- Project: LB Green Travel (CSULB capstone) -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Sustainable Tourism Web Map for the City of Long Beach using bikes: LB Green Travel</h3>
                         <div class="project-links">
-                            <a href="https://github.com/anspal/lbgreentravel" class="project-link" target="_blank" title="View Source on GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/anspal/lbgreentravel" class="project-link" target="_blank" title="View Source on GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
                         </div>
-                    </div>                    
-                    <p>Developed an AWS-based interactive sustainable travel website using an open-source full-stack GIS enterprise architecture using free student subscription. </p>
+                    </div>
+                    <p>
+                        Developed an AWS-based interactive sustainable travel website using an
+                        open-source full-stack GIS enterprise architecture using free student
+                        subscription.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">AWS</span>
                         <span class="tech-tag">PostgreSQL</span>
@@ -519,15 +619,22 @@
                         <a href="https://www.cpace.csulb.edu/news/article/msgisci-grad-is-designing-solutions-for-climate-change" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Blog Post</a>
                     </div>
                 </div>
-                
+
+                <!-- Project: 3D Campus Models -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>3D GIS College Campus Models</h3>
                         <div class="project-links">
-                            <a href="https://github.com/anspal/CSULB_PyQGIS_App" class="project-link" target="_blank" title="View Source on GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/anspal/CSULB_PyQGIS_App" class="project-link" target="_blank" title="View Source on GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
                         </div>
                     </div>
-                    <p>Built interactive campus application using Python with PyQGIS and Qt APIs, and created 3D campus models using ArcGIS Online, 3D Scene Viewer, ArcGIS Pro, CityEngine, and QGIS..</p>
+                    <p>
+                        Built interactive campus application using Python with PyQGIS and Qt APIs, and
+                        created 3D campus models using ArcGIS Online, 3D Scene Viewer, ArcGIS Pro,
+                        CityEngine, and QGIS.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">PyQGIS</span>
                         <span class="tech-tag">3D GIS Visualization</span>
@@ -537,27 +644,36 @@
                         <span class="tech-tag">QGIS</span>
                     </div>
                 </div>
-                
+
+                <!-- Project: Road Impact Assessment (Mumbai) -->
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Road Impact Assessment on Coastal Land Use Areas Using Remote Sensing Data </h3>
+                        <h3>Road Impact Assessment on Coastal Land Use Areas Using Remote Sensing Data</h3>
                     </div>
-                    <p>Project for GIS 606 Advanced Remote Sensing course shocasing the GIS modeling and analysis to figure out the for impacts of major upcoming roads in the city of Mumbai, India.</p>
+                    <p>
+                        Project for GIS 606 Advanced Remote Sensing course showcasing GIS modeling and
+                        analysis to assess the impacts of major upcoming roads in the city of Mumbai,
+                        India.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">ArcGIS Pro</span>
-                        <span class="tech-tag">Sattelite Imagery</span>
+                        <span class="tech-tag">Satellite Imagery</span>
                         <span class="tech-tag">Digital Image Processing</span>
                         <span class="tech-tag">Remote Sensing</span>
                         <span class="tech-tag">Predictive Analytics</span>
                         <a href="https://drive.google.com/file/d/1koI7jMcaRQxMHoeBjOo7IiFbowOWKZA_/view" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Report</a>
                     </div>
                 </div>
-                
+
+                <!-- Project: Parallel Computing for Remote Sensing -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Parallel Computing for Remote Sensing Data Processing</h3>
                     </div>
-                    <p>Designed a parallel computing workflow for remote sensing data processing using GDAL, OpenMPI on the PARAM Yuva II Supercomputer.</p>
+                    <p>
+                        Designed a parallel computing workflow for remote sensing data processing using
+                        GDAL and OpenMPI on the PARAM Yuva II Supercomputer.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">Parallel Computing</span>
                         <span class="tech-tag">GDAL</span>
@@ -566,12 +682,17 @@
                         <a href="https://ijcatr.com/archives/volume2/issue4/ijcatr02041007.pdf" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Paper Publication</a>
                     </div>
                 </div>
-                
+
+                <!-- Project: College Prediction using Data Mining -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>College Prediction using Data Mining</h3>
                     </div>
-                    <p>Created a college prediction website using data mining techniques with MySQL and PHP to assist students in analyzing prospective colleges under Mumbai University.</p>
+                    <p>
+                        Created a college prediction website using data mining techniques with MySQL
+                        and PHP to assist students in analyzing prospective colleges under Mumbai
+                        University.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">MySQL</span>
                         <span class="tech-tag">PHP</span>
@@ -581,136 +702,184 @@
                         <a href="https://docs.google.com/document/d/1UpZVE33HcOrR3U_7PRbvYxm2Lr0TzqaO/edit?usp=sharing&ouid=103545169536521371681&rtpof=true&sd=true" target="_blank" class="btn btn-primary" style="margin-top: 1rem">Report</a>
                     </div>
                 </div>
-                </div>
+
+            </div>
         </div>
     </section>
 
-    <section id="projects" class="projects">
+    <!-- ============================================================
+         SECTION: PRESENTATIONS
+         Talks, demos, brown bags, and conference sessions.
+         ============================================================ -->
+    <section id="presentations" class="projects">
         <div class="container">
             <h2 class="section-title">Presentations</h2>
-            
+
             <div class="projects-grid">
+
+                <!-- Talk: SCAG Student Showcase -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Student Showcase Presentation @ SCAG</h3>
                     </div>
-                    <p>REGIONAL CONFERENCE & GENERAL ASSEMBLY 2018 SOUTHERN CALIFORNIA AT A CROSSROADS On May 3, SCAG’s annual Regional Conference & General Assembly featured a special Student Showcase session featuring GIS Story Maps selected through a competitive application process. This was an opportunity for me to share my project work with elected officials, planners, and regional leaders.</p>
+                    <p>
+                        REGIONAL CONFERENCE & GENERAL ASSEMBLY 2018 — SOUTHERN CALIFORNIA AT A
+                        CROSSROADS. On May 3, SCAG's annual Regional Conference & General Assembly
+                        featured a special Student Showcase session featuring GIS Story Maps selected
+                        through a competitive application process. This was an opportunity for me to
+                        share my project work with elected officials, planners, and regional leaders.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">SCAG</span>
-                        <span class="tech-tag">Poster Presenation</span>
+                        <span class="tech-tag">Poster Presentation</span>
                         <a href="https://scag.ca.gov/post/2018-regional-conference-general-assembly-0" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Story Map</a>
                     </div>
                 </div>
-                
+
+                <!-- Talk: GeoMentor @ Notre Dame High School -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>GeoMentor Presentation @ Notre Dame High School</h3>
                     </div>
-                    <p>As a GeoMentor, I had the opportunity to engage with students and presented a story map which covered many topics like Introduction to GIS, GIS Components, GIS Applications, Future Scope. </p>
+                    <p>
+                        As a GeoMentor, I had the opportunity to engage with students and presented a
+                        story map covering topics like Introduction to GIS, GIS Components, GIS
+                        Applications, and Future Scope.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">GeoMentor</span>
-                        <span class="tech-tag">High School Presenation</span>
+                        <span class="tech-tag">High School Presentation</span>
                     </div>
                 </div>
-                
+
+                <!-- Talk: Esri Brown Bag Session -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Brown Bag Session @ Esri Support Services</h3>
                     </div>
-                    <p>Conducted a brown bag on a topic titled ‘Exploring GeoEvent Server to Work with Live Mapping of COVID-19 Related Datasets’. The demo was created for live incident tracking and alerts of people count while one walks down a street of NYC.</p>
+                    <p>
+                        Conducted a brown bag session titled "Exploring GeoEvent Server to Work with
+                        Live Mapping of COVID-19 Related Datasets." The demo was created for live
+                        incident tracking and alerts of pedestrian counts along a street in NYC.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">GeoEvent</span>
                         <span class="tech-tag">ArcGIS Enterprise</span>
                         <span class="tech-tag">SafeGraph Weekly Patterns Data</span>
                     </div>
                 </div>
-                
+
+                <!-- Talk: Esri UC 2020 -->
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Virtual Demo Session Presenter @ Esri User Confenence 2020 </h3>
+                        <h3>Virtual Demo Session Presenter @ Esri User Conference 2020</h3>
                     </div>
-                    <p>Virtually presented a technical demo session titled ‘ArcGIS Insights: Esri Support’s Perspective’.</p>
+                    <p>Virtually presented a technical demo session titled "ArcGIS Insights: Esri Support's Perspective."</p>
                     <div class="project-tech">
                         <span class="tech-tag">ArcGIS Insights</span>
                         <span class="tech-tag">ArcGIS Enterprise</span>
-                        <a href="https://community.esri.com/ccqpr47374/attachments/ccqpr47374/esri-technical-support-docs/2/1/UC2020-Tech-Supt-Sessions.pdf" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Tech Support Presenations</a>
+                        <a href="https://community.esri.com/ccqpr47374/attachments/ccqpr47374/esri-technical-support-docs/2/1/UC2020-Tech-Supt-Sessions.pdf" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Tech Support Presentations</a>
                     </div>
                 </div>
-                
+
+                <!-- Talk: Esri UC 2019 -->
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Demo Session Presenter @ Esri User Confenence 2019 </h3>
+                        <h3>Demo Session Presenter @ Esri User Conference 2019</h3>
                     </div>
-                    <p>Presented an in-person demo session titled 'Troubleshoot Like an Esri Support Pro: Collector for ArcGIS' at the Esri User Conference 2019.</p>
+                    <p>Presented an in-person demo session titled "Troubleshoot Like an Esri Support Pro: Collector for ArcGIS" at the Esri User Conference 2019.</p>
                     <div class="project-tech">
                         <span class="tech-tag">ArcGIS Insights</span>
                         <span class="tech-tag">ArcGIS Enterprise</span>
-                        <a href="https://community.esri.com/ccqpr47374/attachments/ccqpr47374/esri-technical-support-docs/2/1/UC2020-Tech-Supt-Sessions.pdf" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Tech Support Presenations</a>
+                        <a href="https://community.esri.com/ccqpr47374/attachments/ccqpr47374/esri-technical-support-docs/2/1/UC2020-Tech-Supt-Sessions.pdf" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Tech Support Presentations</a>
                     </div>
                 </div>
-                
+
+                <!-- Talk: Esri Enterprise team presentation -->
+                <!-- NOTE: source href for the PDF button below was empty in the original markup.
+                     An empty href reloads the current page when clicked, so the button has
+                     been disabled (commented out) here. Either supply a real link or remove
+                     the placeholder entirely. -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Enterprise Team Presentation @ Esri</h3>
                     </div>
-                    <p>Presented a topic 'Working with ArcGIS Enterprise Raster Analytics' which covered topics of installation, deployment, configuration and usage of image services, raster analytics and deep learning..</p>
+                    <p>
+                        Presented a topic, "Working with ArcGIS Enterprise Raster Analytics," covering
+                        installation, deployment, configuration, and usage of image services, raster
+                        analytics, and deep learning.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">Deep Learning</span>
                         <span class="tech-tag">Raster Analytics</span>
-                        <a href="" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">PDF</a>
+                        <!-- <a href="ADD-LINK-HERE" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">PDF</a> -->
                     </div>
                 </div>
-                
+
+                <!-- Event: Climathon @ CSULB -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Climathon Presenter @ CSULB</h3>
                     </div>
-                    <p> Participated, created a test website showcasing active tranportation and presentation/pitched our idea to stakeholders from the City of Long Beach by highlighting my sustainable travel and tourism project.</p>
+                    <p>
+                        Participated, created a test website showcasing active transportation, and
+                        presented/pitched our idea to stakeholders from the City of Long Beach by
+                        highlighting my sustainable travel and tourism project.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">CSULB</span>
                         <span class="tech-tag">Active Transport</span>
                         <a href="https://www.csulb.edu/institute-for-innovation-entrepreneurship/climathon-long-beach" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">CSULB Climathon Post</a>
                     </div>
                 </div>
-                
+
+                <!-- Talk: Energy Drone & Robotics Summit 2024 -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Presenter @ ERD Summit 2024</h3>
                     </div>
-                    <p>Presenting at Energy Drone and Robotics Summit 2024 : Manage drones imagery with SiteScan for ArcGIS</p>
+                    <p>Presented at Energy Drone and Robotics Summit 2024: "Manage Drone Imagery with SiteScan for ArcGIS."</p>
                     <div class="project-tech">
                         <span class="tech-tag">Site Scan</span>
                         <span class="tech-tag">Drones</span>
-                         <span class="tech-tag">3D</span>
+                        <span class="tech-tag">3D</span>
                         <a href="https://events.american-tradeshow.com/edrs24/speaker/1242135/anshu-pallav" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">ERD Summit</a>
                     </div>
                 </div>
-                
+
+                <!-- Talk: Petroleum User Group Houston 2025 -->
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Presenter @ Petroleum User Group Houston Q3 2025 </h3>
+                        <h3>Presenter @ Petroleum User Group Houston Q3 2025</h3>
                     </div>
-                    <p>Presented at Petroleum User Group Houston Q3 2025 : Pipeline Examination Reporting & Automation</p>
+                    <p>Presented at Petroleum User Group Houston Q3 2025: "Pipeline Examination Reporting & Automation."</p>
                     <div class="project-tech">
                         <span class="tech-tag">Pipeline</span>
                         <span class="tech-tag">Data Reporting</span>
                         <a href="https://gisportal04.logicsolutionsgroup.com/portal/apps/storymaps/stories/e663e4cc06d44110b1b031fe3970a628" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">Story Map</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    
-  
-
+    <!-- ============================================================
+         SECTION: CONTACT
+         Includes contact details, social links, and a Formspree-backed
+         contact form with reCAPTCHA spam protection.
+         ============================================================ -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Let's Connect</h2>
+
             <div class="contact-content">
+
+                <!-- Contact details & social links -->
                 <div class="contact-info">
                     <h3>Get in touch</h3>
                     <p>I'm always interested in new opportunities and collaborations. Let's discuss how we can work together!</p>
+
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
@@ -718,22 +887,27 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <span>+1 (562)-330-0469 </span>
+                            <span>+1 (562)-330-0469</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Houston, TX</span>
                         </div>
                     </div>
+
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/anshu-pallav/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
                         <a href="https://github.com/anspal/" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
                         <a href="https://x.com/anshu_pallav" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="https://drive.google.com/file/d/1oshSgGnGjcRrLLgwi4y8bhzlReapmFLk/view?usp=sharing" class="social-link" target="_blank" title="Download Resume">  <i class="fas fa-file-download"></i></a>
+                        <a href="https://drive.google.com/file/d/1oshSgGnGjcRrLLgwi4y8bhzlReapmFLk/view?usp=sharing" class="social-link" target="_blank" title="Download Resume">
+                            <i class="fas fa-file-download"></i>
+                        </a>
                     </div>
                 </div>
 
-
+                <!-- Contact form: posts to Formspree, protected by reCAPTCHA.
+                     Submission is intercepted by JS below to show an inline
+                     thank-you message instead of redirecting the page. -->
                 <form action="https://formspree.io/f/mqabvrvw" method="POST" class="contact-form" id="contactForm">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
@@ -747,13 +921,15 @@
                     <div class="form-group">
                         <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                     </div>
+
                     <div class="g-recaptcha" data-sitekey="6LdK9H0rAAAAADlAYGmPTMwS6xexgnRBBbIDD3Zy"></div>
-                    <!-- Optional: Redirect after submission -->
+
+                    <!-- Optional: redirect after submission instead of showing inline message -->
                     <!-- <input type="hidden" name="_redirect" value="https://yourdomain.com/thank-you.html"> -->
 
                     <button type="submit" class="btn btn-primary">Send Message</button>
 
-                    <!-- Success message -->
+                    <!-- Success message, shown via JS after a successful AJAX submit -->
                     <p id="thankYouMessage" style="display:none; color: green; margin-top: 1rem;">
                         Thank you for contacting me! I will follow up soon.
                     </p>
@@ -763,15 +939,79 @@
         </div>
     </section>
 
-
-
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Anshu Pallav. All rights reserved.</p>
+            <p>&copy; 2026 Anshu Pallav. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <!-- ============================================================
+         SCRIPTS
+         ============================================================ -->
 
+    <!-- Site behavior: mobile nav toggle, etc. -->
+    <script src="script.js"></script>
+
+    <!-- Google reCAPTCHA (powers the widget in the contact form above) -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- Contact form submission handler.
+         Intercepts the native form submit, posts via fetch() to Formspree,
+         and reveals #thankYouMessage on success instead of navigating away. -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("contactForm");
+            const thankYouMessage = document.getElementById("thankYouMessage");
+
+            form.addEventListener("submit", async function (e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        Accept: "application/json",
+                    },
+                });
+
+                if (response.ok) {
+                    form.reset();
+                    thankYouMessage.style.display = "block";
+                } else {
+                    alert("Oops! There was a problem submitting your form.");
+                }
+            });
+        });
+    </script>
+
+    <!-- Hero background map initialization.
+         Renders a static (non-interactive) dark basemap centered on
+         Houston, TX behind the hero section. All pan/zoom/touch
+         interactions are disabled so it reads as a backdrop, not a
+         functional map widget. -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const map = L.map('hero-map', {
+                zoomControl: false,
+                attributionControl: false,
+                dragging: false,
+                scrollWheelZoom: false,
+                doubleClickZoom: false,
+                boxZoom: false,
+                keyboard: false,
+                tap: false,
+                touchZoom: false
+            }).setView([29.7604, -95.3698], 10); // Houston, TX
+
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+                maxZoom: 16
+            }).addTo(map);
+        });
+    </script>
+
+</body>
 </html>
